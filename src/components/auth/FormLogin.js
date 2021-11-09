@@ -54,6 +54,7 @@ const FormLogin = ({ setFormData }) => {
                             className="form-control" 
                             id="Password"
                             name="password"
+                            autoComplete="off"
 
                         />
                         <ErrorMessage name="password" component={ () =>( <p className="bg-danger text-white mt-1 p-2">{ errors.password }</p> )} />
