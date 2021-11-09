@@ -2,7 +2,7 @@ import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 
-const FormLogin = ({ setFormData }) => {
+const FormLogin = ({ setFormValues, setError }) => {
     return (
         <Formik
             initialValues={{
@@ -14,11 +14,11 @@ const FormLogin = ({ setFormData }) => {
                 let error = {};
                 const { email, password } = values;
                 if( !email ){
-                    error.email = 'Please insert your Email'
+                    error.email = 'Please enter your Email'
                 };
 
                 if( !password || password.trim() === ''){
-                    error.password = 'Please insert your password'
+                    error.password = 'Please enter your password'
                 } else if ( password.length < 4 ){
                     error.password = 'Minimum length is 4 characters'
                 } 
@@ -28,11 +28,11 @@ const FormLogin = ({ setFormData }) => {
 
             onSubmit ={ ( values, { resetForm } ) => {
                     resetForm();
-                    setFormData( values );
-                    console.log(values)
+                    setFormValues( values );
+                    setError(false)
                 
                 }} 
-        >{ ( {errors} ) => (
+        >{ ( { errors } ) => (
             <Form className="form-group col-md-4">
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email address</label>

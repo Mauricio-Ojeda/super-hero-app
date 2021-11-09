@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import FormLogin from './FormLogin'
 import axios from 'axios';
+import Error from '../error/Error';
 
 const Login = () => {
 
-    const [formData, setFormData] = useState( null );
+    const [formValues, setFormValues] = useState( null );
+    const [error, setError] = useState( false );
 
     useEffect(() => {
-        if( formData ){
-            const { email, password} = formData;
+        if( formValues ){
             const url = 'http://challenge-react.alkemy.org:80';
-            axios.post(url,{
-                email: email,
-                password: password
+            axios.post(url, {
+                email:formValues.email,
+                password:formValues.password,
             })
-            .then( response => console.log( 'correcto '+ response.status ) )
-            .catch( error => console.log( 'hubo un error, ' + error ) );
+            .then( response => {
+                const token = response.data
+                console.log( 'correcto '+ JSON.stringify(response.data) ) 
+            })
+            .catch( error => {
+                console.log( error );
+                setError( true );
+            });
         }
         
-    }, [formData])
+    }, [formValues])
     
 
 
@@ -26,9 +33,10 @@ const Login = () => {
     return (
         <div className="container">
            <div className="h-100 d-flex justify-content-center align-items-center ">
-                  
+                    { error && <Error menssage="Please provide valid email and password" /> }
                     <FormLogin
-                        setFormData={ setFormData }
+                        setFormValues={ setFormValues }
+                        setError={ setError }
                     />
                    
             </div>
