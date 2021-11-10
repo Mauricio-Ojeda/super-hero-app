@@ -1,11 +1,12 @@
 
 import './App.css';
+import Search from './components/home/Search/Search';
 
 function App() {
   return (
-    <div className="App">
-      <h1>app title</h1>
-    </div>
+    <>
+      <Search/>
+    </>
   );
 }
 
