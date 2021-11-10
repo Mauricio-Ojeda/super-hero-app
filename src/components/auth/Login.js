@@ -17,7 +17,7 @@ const Login = () => {
             })
             .then( response => {
                 const token = response.data
-                console.log( 'correcto '+ JSON.stringify(response.data) ) 
+                localStorage.setItem( 'token', JSON.stringify( token) ); 
             })
             .catch( error => {
                 console.log( error );
