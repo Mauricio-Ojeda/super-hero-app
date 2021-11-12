@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <div className="container">
            <div className="h-100 d-flex justify-content-center align-items-center ">
-                    { error && <Error menssage="Please provide valid email and password" /> }
+                    { error && <Error message="Please provide valid email and password" /> }
                     <FormLogin
                         setFormValues={ setFormValues }
                         setError={ setError }

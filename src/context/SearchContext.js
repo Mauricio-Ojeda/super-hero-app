@@ -8,7 +8,7 @@ export const SearchContext = createContext();
 const SearchProvider = (props) => {
 
     const [searchValue, setSearchValue] = useState(null);
-    const [searchData, setSearchData] = useState(null);
+    const [heroesData, setHeroesData] = useState(null);
 
     useEffect(() => {
         if( searchValue ){
@@ -20,31 +20,29 @@ const SearchProvider = (props) => {
                     .then( response => {
                             if(response.data.response === 'success'){
                                 console.log(response.data.results);
-                                setSearchData( response.data.results ); 
+                                setHeroesData( response?.data.results ); 
                             } else{
-                               setSearchData( response.data.error ); 
+                               setHeroesData( response.data.error ); 
                                console.log(response.data.error);     
                             }
                         })
                     .catch( error => console.log(error.response) )
             }
-            
-            
-            setSearchValue(null)
-            console.log(setSearchValue+' search value useeffect');
-
+                        
+            //setSearchValue(null);
             requestAPI();
         }
 
         
-    }, [ searchValue, setSearchValue, setSearchData ])
+    }, [ searchValue, setSearchValue, setHeroesData ])
 
 
     return (
         <SearchContext.Provider
             value= {{ 
                     setSearchValue, 
-                    searchData,
+                    heroesData,
+                    searchValue,
                 }}
         >
             { props.children }

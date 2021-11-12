@@ -17,7 +17,7 @@ const FormSearch = () => {
                 let error = {};
                 const { search } = values;
                 if( !search ){
-                    error.search = 'Please enter a valid SuperHero name'
+                    error.search = 'Please enter a SuperHero name'
                 };
                 
                 return error;

@@ -1,28 +1,42 @@
 import React, { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';
+import Error from '../error/Error';
+import Card from './Card';
 
 const ListCards = () => {
 
-    const { SearchData } = useContext( SearchContext );
+    const { heroesData, searchValue } = useContext( SearchContext );
+    
+    console.log(heroesData);
+        // hero dont exits    
+        if(typeof heroesData === 'string'){
+            return( 
+                <div className="container text-center">
+                    <Error message={ heroesData } />
+                </div>    
+            )
+        }else{
 
-    return (
-        <div>
-            { SearchData && SearchData.map( data => {
+                return (
+                
+                    <>      
+                            { heroesData ? <h3 className="text-center text-capitalize">{ searchValue }</h3> : <h3> Find your hero </h3>}                   
+                            <div className="card-deck container">
+                                <div className="d-flex justify-content-between flex-wrap">    
+                                    { heroesData && heroesData.map( hero =>{ 
 
-                const { id, name, image } = data;
-
-               return( 
-                    <div key={ id } className="card" >
-                        <img className="card-img-top" src={ image.url } alt={ name }/>
-                        <div className="card-body">
-                            <h4 className="card-title">{ name }</h4>                            
-                            <a href="#home" className="btn btn-block btn-primary st">add</a>
-                        </div>
-                    </div>
-                ) 
-            } ) }
-        </div>
-    )
+                                        return(
+                                            <Card 
+                                                key={ hero.id }
+                                                hero={ hero }
+                                            />
+                                        )}
+                                    )}
+                                </div>    
+                            </div>
+                    </>                    
+                )
+        }                                   
 }
 
 export default ListCards

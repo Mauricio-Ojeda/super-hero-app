@@ -1,5 +1,6 @@
 import React from 'react'
-import Card from '../../atoms/Card';
+import ListCards from '../../atoms/ListCards';
+
 
 import FormSearch from './Form';
 
@@ -8,8 +9,8 @@ const Search = () => {
 
     return (
         <div className="w-100">
-            <FormSearch/>
-            <Card/>
+            <FormSearch />
+            <ListCards />
         </div>
     )
 }
