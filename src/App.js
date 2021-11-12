@@ -1,11 +1,16 @@
 
 import './App.css';
-import Search from './components/home/Search/Search';
+import Home from './components/home/Home';
+import SearchProvider from './context/SearchContext';
+
 
 function App() {
   return (
     <>
-      <Search/>
+      <SearchProvider>
+        <Home/>
+      </SearchProvider>
+      
     </>
   );
 }
