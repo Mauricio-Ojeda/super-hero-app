@@ -5,25 +5,28 @@ import Card from './Card';
 
 const ListCards = () => {
 
-    const { heroesData, searchValue } = useContext( SearchContext );
+    const { heroesData } = useContext( SearchContext );
+
+      
     
-    console.log(heroesData);
         // hero dont exits    
         if(typeof heroesData === 'string'){
+            
             return( 
-                <div className="container text-center">
+                <div className="container text-center text-capitalize">
                     <Error message={ heroesData } />
                 </div>    
             )
         }else{
+               
 
                 return (
                 
                     <>      
-                            { heroesData ? <h3 className="text-center text-capitalize">{ searchValue }</h3> : <h3> Find your hero </h3>}                   
-                            <div className="card-deck container">
+                            { heroesData ? <h3 className="text-center text-capitalize my-5"> Results For: { heroesData[ "results-for" ]}</h3> : <h3> Find your hero </h3>}                   
+                            <div className="card-deck">
                                 <div className="d-flex justify-content-between flex-wrap">    
-                                    { heroesData && heroesData.map( hero =>{ 
+                                    { heroesData && heroesData.results.map( hero =>{ 
 
                                         return(
                                             <Card 

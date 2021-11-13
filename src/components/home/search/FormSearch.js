@@ -5,7 +5,7 @@ import { SearchContext } from '../../../context/SearchContext';
 
 const FormSearch = () => {
     
-    const { setSearchValue } = useContext( SearchContext );
+    const { setSearchValue, setError } = useContext( SearchContext );
 
     return (
         <Formik
@@ -25,11 +25,12 @@ const FormSearch = () => {
 
             onSubmit ={ ( values, { resetForm } ) => {            
                     setSearchValue( values.search );
+                    setError( false );
                     resetForm();
                                                        
                 }} 
         >{ ( { errors } ) => (
-            <Form className="w-100 form-group col-md-4">
+            <Form className=" form-group mb-3">
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Search a SuperHero</label>
                         <Field 

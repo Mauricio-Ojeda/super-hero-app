@@ -9,41 +9,44 @@ const SearchProvider = (props) => {
 
     const [searchValue, setSearchValue] = useState(null);
     const [heroesData, setHeroesData] = useState(null);
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         if( searchValue ){
           
-            console.log(searchValue);
             const requestAPI = async () => {
                 const url = `/api/10225366705148006/search/${ searchValue }`;
                 await axios.get( url )
                     .then( response => {
                             if(response.data.response === 'success'){
-                                console.log(response.data.results);
-                                setHeroesData( response?.data.results ); 
+                               setHeroesData( response?.data ); 
                             } else{
                                setHeroesData( response.data.error ); 
-                               console.log(response.data.error);     
+                                
                             }
                         })
-                    .catch( error => console.log(error.response) )
+                    .catch( error => {
+                        console.log( error );
+                        setError( true );
+                    })
             }
                         
-            //setSearchValue(null);
+            setSearchValue(null);
             requestAPI();
         }
 
         
-    }, [ searchValue, setSearchValue, setHeroesData ])
+    }, [ searchValue, setSearchValue ])
 
 
     return (
         <SearchContext.Provider
             value= {{ 
-                    setSearchValue, 
+                    setSearchValue,
+                    setError,
+                    error, 
                     heroesData,
-                    searchValue,
-                }}
+            }}
         >
             { props.children }
         </SearchContext.Provider>
