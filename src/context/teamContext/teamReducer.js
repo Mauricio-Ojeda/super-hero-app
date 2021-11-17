@@ -18,8 +18,31 @@ export const addHero = ( hero ) =>({
     payload: hero,
 });
 
+export const deleteHero = ( hero ) =>({
+    type: DELETE_HERO,
+    payload: hero,
+});
+
 
 // Reducer
-export const heroTeamReducer = ( state = initialState, action){
+export const heroTeamReducer = ( state = initialState, action) => {
+    switch ( action.type ) {
+      case ADD_HERO:
+        return{
+          ...state,
+          heroesTeam: state.heroesTeam.concat( action.payload ),
+        };
+      case DELETE_HERO:
+        return state.filter( hero => hero.id !== action.payload )
+      case SEE_MORE:
+        return{
+          ...state,
+          heroesTeam: state.heroesTeam.concat( action.payload ),
+        };
+        
+       
     
+      default:
+       return state;
+    }
 }
