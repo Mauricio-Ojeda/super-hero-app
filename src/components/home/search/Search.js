@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import FormSearch from './FormSearch';
-import ListCards from '../../atoms/ListCards';
+import ListCards from './atoms/ListCards';
 import { SearchContext } from '../../../context/SearchContext';
 import Error from '../../error/Error';
 

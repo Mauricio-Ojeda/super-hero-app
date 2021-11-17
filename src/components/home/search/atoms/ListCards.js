@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { SearchContext } from '../../context/SearchContext';
-import Error from '../error/Error';
+import { SearchContext } from '../../../../context/SearchContext';
+import Error from '../../../error/Error';
 import Card from './Card';
 
 const ListCards = () => {

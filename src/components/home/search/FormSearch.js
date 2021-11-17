@@ -40,7 +40,7 @@ const FormSearch = () => {
                             name="search"
                             aria-describedby="emailHelp"
                             placeholder="Search your next Team Mate"
-                            autocomplete="off"
+                            autoComplete="off"
 
                         />
                         <ErrorMessage name="search" component={ () =>( <p className="bg-danger text-white mt-1 p-2">{ errors.search }</p> )} />

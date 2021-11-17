@@ -1,4 +1,4 @@
-import React, { createContext,  useReducer,  useState } from 'react';
+import React, { createContext,  useReducer } from 'react';
 
 
 export const TeamContext = createContext();
@@ -9,6 +9,7 @@ const TeamProvider = ({ children, initialState, reducer }) => {
 
     const [ globalState, dispatch ] = useReducer( reducer, initialState )   
 
+    console.log(globalState);
 
     return (
         <TeamContext.Provider

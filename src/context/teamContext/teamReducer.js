@@ -11,11 +11,20 @@ export const initialState = {
     heroesTeam: [],
   };
 
+export const badHero = [];  
+export const goodHero = [];  
+
 // Dispatch
 
 export const addHero = ( hero ) =>({
     type: ADD_HERO,
-    payload: hero,
+    payload: {
+      id: hero.id,
+      name: hero.name,
+      image: hero.image,
+      powerstats: hero.powerstats,
+      alignment: hero.biography.alignment,
+  },
 });
 
 export const deleteHero = ( hero ) =>({
@@ -29,6 +38,7 @@ export const heroTeamReducer = ( state = initialState, action) => {
     switch ( action.type ) {
       case ADD_HERO:
         return{
+         //(action.payload.alignment === 'good') ? goodHero.concat( action.payload.id ) : badHero.concat( action.payload.id ); ,
           ...state,
           heroesTeam: state.heroesTeam.concat( action.payload ),
         };
