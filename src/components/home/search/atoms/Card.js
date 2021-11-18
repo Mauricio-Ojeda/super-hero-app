@@ -5,13 +5,12 @@ import { addHero } from '../../../../context/teamContext/teamReducer';
 
 const Card = ({ hero }) => {
 
-    const { id, name, image } = hero;
+    const { name, image } = hero;
 
     const [ , dispatch ] = useContext( TeamContext )
 
     const handleClick = ( ) => {
         dispatch( addHero( hero ) );
-        console.log(hero + id );
     }
     
     return( 
