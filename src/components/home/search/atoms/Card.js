@@ -5,12 +5,26 @@ import { addHero } from '../../../../context/teamContext/teamReducer';
 
 const Card = ({ hero }) => {
 
-    const { name, image } = hero;
+    const [ globalState, dispatch, ,setError ] = useContext( TeamContext );
+    // Destructuring
+    const { id, name, image } = hero;
+    const { heroesTeam } = globalState;
 
-    const [ , dispatch ] = useContext( TeamContext )
-
+    
     const handleClick = ( ) => {
-        dispatch( addHero( hero ) );
+        //validations
+        const heroExist = heroesTeam.map( hero => hero.id ).includes( id ); // test if hero already exist in team
+        const heroGoodBad = heroesTeam.filter( hero => hero.alingment === good ).reduce( acu )
+        ( heroExist ) ? 
+                        setError( true )
+                      ? ( ( hero.alingment === 'good' ) && ( goodHero < 4 ) ) ?  
+                        
+                      : 
+                        dispatch( addHero( hero ) );
+        setTimeout(() => {
+            setError( false );              
+            
+        }, 3500);
     }
     
     return( 

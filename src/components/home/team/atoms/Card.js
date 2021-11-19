@@ -1,16 +1,17 @@
 import React, { useContext } from 'react'
 import { TeamContext } from '../../../../context/teamContext/Store';
-import { addHero } from '../../../../context/teamContext/teamReducer';
+import { deleteHero } from '../../../../context/teamContext/teamReducer';
 
 
 const Card = ({ hero }) => {
 
-    const { name, image, powerstats } = hero;
+    const { id, name, image, powerstats } = hero;
 
     const [ , dispatch ] = useContext( TeamContext )
 
-    const handleClick = ( ) => {
-        dispatch( addHero( hero ) );
+    const handleDeleteClick = ( ) => {
+           
+        dispatch( deleteHero( id ) );
     }
     
     return( 
@@ -29,8 +30,8 @@ const Card = ({ hero }) => {
                             <li> combat: { powerstats.combat } </li>
                         </ul>
                     </div>                            
-                    <button className="btn btn-primary" onClick={ handleClick }>Delete</button>
-                    <button className="btn btn-primary" onClick={ handleClick }>See more</button>
+                    <button className="btn btn-primary" onClick={ () => handleDeleteClick( ) }>Delete</button>
+                    <button className="btn btn-primary" >See more</button>
                 </div>
             </div>
         

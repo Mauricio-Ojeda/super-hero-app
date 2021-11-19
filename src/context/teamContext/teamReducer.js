@@ -43,7 +43,9 @@ export const heroTeamReducer = ( state = initialState, action) => {
           heroesTeam: state.heroesTeam.concat( action.payload ),
         };
       case DELETE_HERO:
-        return state.filter( hero => hero.id !== action.payload )
+        return{         
+          heroesTeam: state.heroesTeam.filter( hero => hero.id !== action.payload )
+        }
       case SEE_MORE:
         return{
           ...state,

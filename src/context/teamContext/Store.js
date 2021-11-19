@@ -1,4 +1,4 @@
-import React, { createContext,  useReducer } from 'react';
+import React, { createContext,  useReducer, useState } from 'react';
 
 
 export const TeamContext = createContext();
@@ -7,15 +7,15 @@ export const TeamContext = createContext();
 
 const TeamProvider = ({ children, initialState, reducer }) => {
 
+    const [error, setError] = useState( false );
     const [ globalState, dispatch ] = useReducer( reducer, initialState )   
 
-    const { heroesTeam } = globalState;
-    console.log( heroesTeam );
-
+    console.log(globalState);
+       
     return (
         <TeamContext.Provider
             value= {
-                   [ globalState, dispatch ]
+                   [ globalState, dispatch, error, setError ]
             }
         >
             { children }
