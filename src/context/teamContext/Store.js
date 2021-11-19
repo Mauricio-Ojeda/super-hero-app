@@ -9,7 +9,8 @@ const TeamProvider = ({ children, initialState, reducer }) => {
 
     const [ globalState, dispatch ] = useReducer( reducer, initialState )   
 
-    console.log(globalState);
+    const { heroesTeam } = globalState;
+    console.log( heroesTeam );
 
     return (
         <TeamContext.Provider

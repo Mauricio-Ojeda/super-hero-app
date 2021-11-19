@@ -38,11 +38,9 @@ export const heroTeamReducer = ( state = initialState, action) => {
     switch ( action.type ) {
       case ADD_HERO:
         return{
-          //Hero is in the team
-          {heroesTeam.includes( action.payload.id )}
-         //(action.payload.alignment === 'good') ? goodHero.concat( action.payload.id ) : badHero.concat( action.payload.id ); ,
-         { ...state,
-          heroesTeam: state.heroesTeam.concat( action.payload ),}
+          
+          ...state,
+          heroesTeam: state.heroesTeam.concat( action.payload ),
         };
       case DELETE_HERO:
         return state.filter( hero => hero.id !== action.payload )
