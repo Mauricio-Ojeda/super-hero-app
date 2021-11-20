@@ -6,7 +6,7 @@ export const DELETE_HERO = 'DELETE_HERO';
 
 export const SEE_MORE = 'SEE_MORE';
 
-
+// initial state
 export const initialState = {
     heroesTeam: [],
   };

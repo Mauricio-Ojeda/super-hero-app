@@ -5,7 +5,7 @@ import { addHero } from '../../../../context/teamContext/teamReducer';
 
 const Card = ({ hero }) => {
 
-    const [ globalState, dispatch, ,setError, goodHero, setGoodHero, badHero, setBadHero ] = useContext( TeamContext );
+    const [ globalState, dispatch, ,setError ] = useContext( TeamContext );
     // Destructuring
     const { id, name, image } = hero;
     const { heroesTeam } = globalState;
