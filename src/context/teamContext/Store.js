@@ -8,6 +8,8 @@ export const TeamContext = createContext();
 const TeamProvider = ({ children, initialState, reducer }) => {
 
     const [error, setError] = useState( false );
+    const [goodHero, setGoodHero] = useState( 0 );
+    const [badHero, setBadHero] = useState( 0 );
     const [ globalState, dispatch ] = useReducer( reducer, initialState )   
 
     console.log(globalState);
@@ -15,7 +17,7 @@ const TeamProvider = ({ children, initialState, reducer }) => {
     return (
         <TeamContext.Provider
             value= {
-                   [ globalState, dispatch, error, setError ]
+                   [ globalState, dispatch, error, setError, goodHero, setGoodHero, badHero, setBadHero ]
             }
         >
             { children }

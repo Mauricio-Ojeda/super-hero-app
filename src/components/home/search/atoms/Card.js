@@ -5,7 +5,7 @@ import { addHero } from '../../../../context/teamContext/teamReducer';
 
 const Card = ({ hero }) => {
 
-    const [ globalState, dispatch, ,setError ] = useContext( TeamContext );
+    const [ globalState, dispatch, ,setError, goodHero, setGoodHero, badHero, setBadHero ] = useContext( TeamContext );
     // Destructuring
     const { id, name, image } = hero;
     const { heroesTeam } = globalState;
@@ -13,18 +13,36 @@ const Card = ({ hero }) => {
     
     const handleClick = ( ) => {
         //validations
+        let goods = [];
+        let bads = [];
         const heroExist = heroesTeam.map( hero => hero.id ).includes( id ); // test if hero already exist in team
-        const heroGoodBad = heroesTeam.filter( hero => hero.alingment === good ).reduce( acu )
-        ( heroExist ) ? 
-                        setError( true )
-                      ? ( ( hero.alingment === 'good' ) && ( goodHero < 4 ) ) ?  
-                        
-                      : 
-                        dispatch( addHero( hero ) );
-        setTimeout(() => {
-            setError( false );              
-            
-        }, 3500);
+        goods = heroesTeam.filter( hero => hero.alignment === 'good' );
+        bads = heroesTeam.filter(hero => hero.alignment === 'bad' );
+               
+        if( heroExist ){
+            setError( true );
+            setTimeout(() => {
+                setError( false );              
+                
+            }, 3500);
+            return;            
+        } else if ( ( hero.biography.alignment === 'good' ) && ( goods.length < 3 ) ){            
+                  
+            console.log('goods: ' + goods.length);
+            dispatch( addHero( hero ) );
+            return;
+        }else if ( ( hero.biography.alignment === 'bad' ) && ( bads.length < 3 ) ){
+           
+            console.log('bads: '+ bads.length);
+            dispatch( addHero( hero ) )
+            return;
+        } else { 
+            setError( true );
+            setTimeout(() => {
+                setError( false );              
+                
+            }, 3500);        
+        }
     }
     
     return( 

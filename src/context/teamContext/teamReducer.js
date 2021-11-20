@@ -11,8 +11,6 @@ export const initialState = {
     heroesTeam: [],
   };
 
-export const badHero = [];  
-export const goodHero = [];  
 
 // Dispatch
 
