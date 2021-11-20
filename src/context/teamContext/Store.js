@@ -7,7 +7,8 @@ export const TeamContext = createContext();
 
 const TeamProvider = ({ children, initialState, reducer }) => {
 
-    const [error, setError] = useState( false );
+    const [ error, setError ] = useState( false );
+    const [ errorMessage, setErrorMessage ] = useState( '' );
     const [ globalState, dispatch ] = useReducer( reducer, initialState )   
 
     console.log(globalState);
@@ -15,7 +16,7 @@ const TeamProvider = ({ children, initialState, reducer }) => {
     return (
         <TeamContext.Provider
             value= {
-                   [ globalState, dispatch, error, setError ]
+                   [ globalState, dispatch, error, errorMessage, setErrorMessage, setError ]
             }
         >
             { children }

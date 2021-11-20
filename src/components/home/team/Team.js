@@ -6,14 +6,14 @@ import PowerStats from './PowerStats'
 
 const Team = () => {
 
-    const [, , error] = useContext( TeamContext );
+    const [, , error, errorMessage ] = useContext( TeamContext );
 
     return (
        
             <div className="container-fluid mb-3">
                 <h2 className="text-center">Your team </h2>
                 <div className="text-center">
-                    { error && <Error message="Hero already in your team" /> }
+                    { error && <Error message={ errorMessage } /> }
                 </div>
                 <div className="row">
                     <div className="col">

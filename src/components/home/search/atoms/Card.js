@@ -3,40 +3,56 @@ import { TeamContext } from '../../../../context/teamContext/Store';
 import { addHero } from '../../../../context/teamContext/teamReducer';
 
 
+
 const Card = ({ hero }) => {
 
-    const [ globalState, dispatch, ,setError ] = useContext( TeamContext );
+    const [ globalState, dispatch, , ,setErrorMessage, setError ] = useContext( TeamContext );
     // Destructuring
     const { id, name, image } = hero;
     const { heroesTeam } = globalState;
 
     
     const handleClick = ( ) => {
-        //validations
+        
         let goods = [];
         let bads = [];
         const heroExist = heroesTeam.map( hero => hero.id ).includes( id ); // test if hero already exist in team
         goods = heroesTeam.filter( hero => hero.alignment === 'good' );
         bads = heroesTeam.filter(hero => hero.alignment === 'bad' );
-               
+        
+        //validations
         if( heroExist ){
+            setErrorMessage( "Hero already in your team" );
             setError( true );
             setTimeout(() => {
                 setError( false );              
                 
             }, 3500);
             return;            
-        } else if ( ( hero.biography.alignment === 'good' ) && ( goods.length < 3 ) ){            
+        } 
+
+        if ( heroesTeam.length === 6 ) {
+            setErrorMessage( "you can't have more than 6 heroes" );
+            setError( true );
+            setTimeout(() => {
+                setError( false );              
+                
+            }, 3500);
+            return;
+        }
+        
+        if ( ( hero.biography.alignment === 'good' ) && ( goods.length < 3 ) ){ // dont be more that 3 good heroes           
                   
             console.log('goods: ' + goods.length);
             dispatch( addHero( hero ) );
             return;
-        }else if ( ( hero.biography.alignment === 'bad' ) && ( bads.length < 3 ) ){
+        }else if ( ( hero.biography.alignment === 'bad' ) && ( bads.length < 3 ) ){ // dont be more that 3 bad heroes  
            
             console.log('bads: '+ bads.length);
             dispatch( addHero( hero ) )
             return;
-        } else { 
+        } else {
+            setErrorMessage( `you can't have more than 3 ${ hero.biography.alignment } heroes` ); 
             setError( true );
             setTimeout(() => {
                 setError( false );              
