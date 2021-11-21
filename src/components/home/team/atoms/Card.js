@@ -8,8 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Card = ({ hero }) => {
 
-    const { id, name, image, powerstats } = hero;
-
+    const { id, name, image, powerstats, appearance, biography, work } = hero;
+    console.log(hero);
     const [ , dispatch ] = useContext( TeamContext )
 
     const handleDeleteClick = ( ) => {
@@ -47,12 +47,25 @@ const Card = ({ hero }) => {
                         See More
                     </Button>
 
-                    <Modal show={show} onHide={handleClose}>
+                    <Modal show={show} onHide={handleClose} centered>
                         <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                            <Modal.Title>{ name }</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            Woohoo, you're reading this text in a modal!
+                            <p>
+                                Aliases: { biography.aliases }
+                                <br />
+                                Weight: { appearance.weight[1] }
+                                <br />
+                                Height: { appearance.height[1] }
+                                <br />
+                                Eye Color: { appearance["eye-color"] }
+                                <br />
+                                Hair Color: { appearance["hair-color"] }
+                                <br />
+                                Work Base: { work.base }
+
+                            </p>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>

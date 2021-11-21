@@ -16,13 +16,13 @@ export const initialState = {
 
 export const addHero = ( hero ) =>({
     type: ADD_HERO,
-    payload: {
-      id: hero.id,
-      name: hero.name,
-      image: hero.image,
-      powerstats: hero.powerstats,
-      alignment: hero.biography.alignment,
-  },
+    payload: hero
+      // id: hero.id,
+      // name: hero.name,
+      // image: hero.image,
+      // powerstats: hero.powerstats,
+      // alignment: hero.biography.alignment,
+  ,
 });
 
 export const deleteHero = ( hero ) =>({

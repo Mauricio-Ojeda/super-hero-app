@@ -16,8 +16,8 @@ const Card = ({ hero }) => {
         let goods = [];
         let bads = [];
         const heroExist = heroesTeam.map( hero => hero.id ).includes( id ); // test if hero already exist in team
-        goods = heroesTeam.filter( hero => hero.alignment === 'good' );
-        bads = heroesTeam.filter(hero => hero.alignment === 'bad' );
+        goods = heroesTeam.filter( hero => hero.biography.alignment === 'good' );
+        bads = heroesTeam.filter(hero => hero.biography.alignment === 'bad' );
         
         //validations
         if( heroExist ){
