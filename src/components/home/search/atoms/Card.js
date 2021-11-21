@@ -3,7 +3,6 @@ import { TeamContext } from '../../../../context/teamContext/Store';
 import { addHero } from '../../../../context/teamContext/teamReducer';
 
 
-
 const Card = ({ hero }) => {
 
     const [ globalState, dispatch, , ,setErrorMessage, setError ] = useContext( TeamContext );
@@ -42,16 +41,22 @@ const Card = ({ hero }) => {
         }
         
         if ( ( hero.biography.alignment === 'good' ) && ( goods.length < 3 ) ){ // dont be more that 3 good heroes           
-                  
-            console.log('goods: ' + goods.length);
+                       
             dispatch( addHero( hero ) );
             return;
+            
         }else if ( ( hero.biography.alignment === 'bad' ) && ( bads.length < 3 ) ){ // dont be more that 3 bad heroes  
-           
-            console.log('bads: '+ bads.length);
+          
             dispatch( addHero( hero ) )
             return;
-        } else {
+
+        } else if( hero.biography.alignment === 'neutral' ){
+
+            dispatch( addHero( hero ) );
+            return;
+
+        }else {
+
             setErrorMessage( `you can't have more than 3 ${ hero.biography.alignment } heroes` ); 
             setError( true );
             setTimeout(() => {
