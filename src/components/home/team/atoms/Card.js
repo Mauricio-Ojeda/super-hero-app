@@ -4,12 +4,13 @@ import { deleteHero } from '../../../../context/teamContext/teamReducer';
 
 import { Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import HorizontalBarChart from './HorizontalBarChart';
 
 
 const Card = ({ hero }) => {
 
     const { id, name, image, powerstats, appearance, biography, work } = hero;
-    console.log(hero);
+    
     const [ , dispatch ] = useContext( TeamContext )
 
     const handleDeleteClick = ( ) => {
@@ -17,10 +18,11 @@ const Card = ({ hero }) => {
         dispatch( deleteHero( id ) );
     }
 
-    // Modal
+    // Modal state
   
     const [show, setShow] = useState(false);
-      
+    
+    // Modal Handle
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
       
@@ -31,15 +33,16 @@ const Card = ({ hero }) => {
                 <img className="card-img-top" src={ image.url } alt={ name }/>
                 <div className="card-body">
                     <h4 className="card-title">{ name }</h4>
-                    <div className="container">
-                        <ul>
+                    <div className="row" >
+                        {/* <ul>
                             <li> intelligence: { powerstats.intelligence === 'null' ? 'unknown' : powerstats.intelligence} </li>
                             <li> strength: { powerstats.strength === 'null' ? 'unknown' : powerstats.strength } </li>
                             <li> speed: { powerstats.speed === 'null' ? 'unknown' : powerstats.speed } </li>
                             <li> durability: { powerstats.durability === 'null' ? 'unknown' : powerstats.durability } </li>
                             <li> power: { powerstats.power === 'null' ? 'unknown' : powerstats.power }</li>
                             <li> combat: { powerstats.combat === 'null' ? 'unknown' : powerstats.combat } </li>
-                        </ul>
+                        </ul> */}
+                        <HorizontalBarChart />
                     </div> 
                    
                     <button className="btn btn-primary" onClick={ () => handleDeleteClick( ) }>Delete</button>
