@@ -28,12 +28,14 @@ const Card = ({ hero }) => {
       
     
     return( 
-            <div className="col-lg-3 col-md-4 ">
-                <div className="card " >
-                    <img className="card-img-top" src={ image.url } alt={ name }/>
-                    <div className="card-body">
-                        <h4 className="card-title">{ name }</h4>
-                        <div className="row" >
+            <div className="card-container col-lg-3 col-md-4 ">
+                <div className="card-flip " >
+                    <div className="card front"> 
+                        <img className="card-img-top" src={ image.url } alt={ name }/>
+                        <div className="card-body">
+                            <h4 className="card-title">{ name }</h4>
+                    </div>    
+                    <div className="card back"></div>    
                             {/* <ul>
                                 <li> intelligence: { powerstats.intelligence === 'null' ? 'unknown' : powerstats.intelligence} </li>
                                 <li> strength: { powerstats.strength === 'null' ? 'unknown' : powerstats.strength } </li>
@@ -42,9 +44,9 @@ const Card = ({ hero }) => {
                                 <li> power: { powerstats.power === 'null' ? 'unknown' : powerstats.power }</li>
                                 <li> combat: { powerstats.combat === 'null' ? 'unknown' : powerstats.combat } </li>
                             </ul> */}
-                            <HorizontalBarChart />
-                        </div> 
                     
+                    <HorizontalBarChart />
+                                           
                         <button className="btn btn-primary" onClick={ () => handleDeleteClick( ) }>Delete</button>
                         <Button variant="primary" onClick={handleShow}>
                             See More

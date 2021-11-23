@@ -1,17 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { TeamContext } from '../../../../context/teamContext/Store';
 import { addHero } from '../../../../context/teamContext/teamReducer';
+import Error from '../../../error/Error';
 
 
 const Card = ({ hero }) => {
 
-    const [ globalState, dispatch, , ,setErrorMessage, setError ] = useContext( TeamContext );
+    const [ globalState, dispatch, ] = useContext( TeamContext );
     // Destructuring
     const { id, name, image } = hero;
     const { heroesTeam } = globalState;
 
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
     
-    const handleClick = ( ) => {
+    const handleClick = () => {
         
         let goods = [];
         let bads = [];
@@ -71,7 +75,10 @@ const Card = ({ hero }) => {
             <div className="card mb-3 " >
                 <img className="card-img-top h-100" src={ image.url } alt={ name }/>
                 <div className="card-body">
-                    <h4 className="card-title">{ name }</h4>                            
+                    <h4 className="card-title">{ name }</h4> 
+                    <div className="text-center">
+                        { ( error ) && <Error message={ errorMessage } /> }
+                    </div>                           
                     <button className="btn btn-primary w-100 stretched-link" onClick={ handleClick }>add</button>
                 </div>
             </div>
