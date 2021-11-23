@@ -34,6 +34,7 @@ const HorizontalBarChart = () => {
 
         const options = {
         indexAxis: 'y',
+        maintainAspectRatio: false,
         // Elements options apply to all of the options unless overridden in a dataset
         // In this case, we are setting the border of each horizontal bar to be 2px wide
         elements: {
@@ -58,8 +59,8 @@ const HorizontalBarChart = () => {
             <Bar 
                 data={ data }
                 options={ options }
-                // height={ 400 }
-                // width= { 600 }
+                height={ 295 }
+                width= { 100 }
             />
         </div>
     )

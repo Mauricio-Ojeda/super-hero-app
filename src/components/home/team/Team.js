@@ -18,10 +18,7 @@ const Team = () => {
                 <div className="row">
                     <div className="col">
                         <TeamCards />
-                        {/* <div className="text-center">
-                            { error && <Error message={ 'We don`t find the hero, try again.' } />}
-                        </div> */}
-
+                       
                     </div>                   
                 </div>
                 <div className="row">

@@ -67,15 +67,15 @@ const Card = ({ hero }) => {
     }
     
     return( 
-        
-            <div className="card col-md-5 mb-4" >
-                <img className="card-img-top" src={ image.url } alt={ name }/>
+            <div className="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+            <div className="card mb-3 " >
+                <img className="card-img-top h-100" src={ image.url } alt={ name }/>
                 <div className="card-body">
                     <h4 className="card-title">{ name }</h4>                            
                     <button className="btn btn-primary w-100 stretched-link" onClick={ handleClick }>add</button>
                 </div>
             </div>
-        
+            </div>
     ) 
 }
 

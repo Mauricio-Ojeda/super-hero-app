@@ -24,8 +24,8 @@ const ListCards = () => {
                 
                     <>      
                             { heroesData ? <h3 className="text-center text-capitalize my-5"> Results For: { heroesData[ "results-for" ]}</h3> : <h3> Find your hero </h3>}                   
-                            <div className="card-deck">
-                                <div className="d-flex justify-content-between flex-wrap">    
+                          
+                                <div className="row mt-5">    
                                     { heroesData && heroesData.results.map( hero =>{ 
 
                                         return(
@@ -35,8 +35,9 @@ const ListCards = () => {
                                             />
                                         )}
                                     )}
-                                </div>    
-                            </div>
+                                </div>
+                            
+                           
                     </>                    
                 )
         }                                   

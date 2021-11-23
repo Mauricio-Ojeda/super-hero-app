@@ -12,11 +12,21 @@ const Search = () => {
     return (
         <div className="container-fluid mb-3">
             <h1 className="text-center">Your own team of SuperHeroes</h1>
-            <FormSearch />
-            <div className="text-center">
-                { error && <Error message={ 'We don`t find the hero, try again.' } />}
+            <div className="row">
+                <div className="col-5">
+                    <FormSearch />
+                    <div className="text-center">
+                        { error && <Error message={ 'We don`t find the hero, try again.' } />}
+                    </div>
+
+                </div>
             </div>
-            <ListCards />
+            <div className="row justify-content-center">
+                <div className="col">
+                    <ListCards />
+
+                </div>
+            </div>
         </div>
     )
 }

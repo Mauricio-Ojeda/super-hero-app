@@ -12,9 +12,9 @@ const ListCards = () => {
     return (
                 
          <>      
-                                    
-            <div className="card-deck">
-                <div className="d-flex justify-content-between flex-wrap">    
+                                  
+            
+                <div className=" row mt-5 ">    
                     { heroesTeam && heroesTeam.map( hero =>{
                         return(
                             <Card 
@@ -24,7 +24,7 @@ const ListCards = () => {
                         )}
                     )}
                 </div>    
-            </div>
+            
          </>                    
     )
                                          
