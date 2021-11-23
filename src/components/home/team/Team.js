@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react';
 import TeamCards from './atoms/TeamCards'
 import PowerStats from './PowerStats'
 

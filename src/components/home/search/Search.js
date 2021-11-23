@@ -13,7 +13,7 @@ const Search = () => {
         <div className="container-fluid mb-3">
             <h1 className="text-center">Your own team of SuperHeroes</h1>
             <div className="row">
-                <div className="col-5">
+                <div className="col-md-6">
                     <FormSearch />
                     <div className="text-center">
                         { error && <Error message={ 'We don`t find the hero, try again.' } />}
