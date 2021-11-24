@@ -30,7 +30,7 @@ const Card = ({ hero }) => {
       
     
     return( 
-            <div className="card-container col-lg-3 col-md-4 d-flex align-items-stretch mb-4 ">
+            <div className="card-container col-lg-4 col-md-5 d-flex align-items-stretch mb-4 ">
                 <div className="card-flip " >
                     <div className="card front"> 
                         <img className="card-img h-100" src={ image.url } alt={ name }/>
@@ -52,11 +52,15 @@ const Card = ({ hero }) => {
                             <HorizontalBarChart 
                                 powerstats= { powerstats }
                             />
-                                                
-                            <button className="btn btn-primary" onClick={ () => handleDeleteClick( ) }>Delete</button>
-                            <Button variant="primary" onClick={handleShow}>
-                                See More
-                            </Button>
+                            <div className="card-footer mt-5">
+                                <div className="d-flex justify-content-between p-md-1 ">                    
+                                    <button className="btn  btn-danger me-2" onClick={ () => handleDeleteClick( ) }>Delete</button>
+                                    <Button variant="info" onClick={handleShow}>
+                                        Details
+                                    </Button>
+                                </div>
+
+                            </div>    
 
                             <Modal show={show} onHide={handleClose} centered>
                                     <Modal.Header closeButton>

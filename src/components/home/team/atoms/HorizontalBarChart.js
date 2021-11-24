@@ -2,15 +2,16 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
 
-const HorizontalBarChart = () => {
+const HorizontalBarChart = ( { powerstats } ) => {
 
-    
+        // Destructuring powerstats
+        const { intelligence, strength, speed, durability, power, combat } = powerstats;
+
         const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Intel', 'Str', 'Speed', 'Durab', 'Pw', 'Cmbt'],
         datasets: [
             {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [ intelligence, strength, speed, durability, power, combat ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -34,7 +35,7 @@ const HorizontalBarChart = () => {
 
         const options = {
         indexAxis: 'y',
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         // Elements options apply to all of the options unless overridden in a dataset
         // In this case, we are setting the border of each horizontal bar to be 2px wide
         elements: {
@@ -45,13 +46,14 @@ const HorizontalBarChart = () => {
         responsive: true,
         plugins: {
             legend: {
-            position: 'right',
+                display: false,
             },
             title: {
             display: true,
-            text: 'Chart.js Horizontal Bar Chart',
+            text: 'Power Stats',
             },
         },
+        
         };
 
     return (
@@ -59,8 +61,8 @@ const HorizontalBarChart = () => {
             <Bar 
                 data={ data }
                 options={ options }
-                height={ 295 }
-                width= { 100 }
+                height={ 280}
+                width= {278}                
             />
         </div>
     )
