@@ -23,7 +23,7 @@ const ListCards = () => {
                 return (
                 
                     <>      
-                            { heroesData ? <h3 className="text-center text-capitalize my-5"> Results For: { heroesData[ "results-for" ]}</h3> : <h3> Find your hero </h3>}                   
+                            { heroesData && <h3 className="text-center text-capitalize my-5"> Results For: { heroesData[ "results-for" ]}</h3> }                   
                           
                                 <div className="row mt-5">    
                                     { heroesData && heroesData.results.map( hero =>{ 

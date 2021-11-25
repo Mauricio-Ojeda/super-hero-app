@@ -44,7 +44,35 @@ const Card = ({ hero }) => {
                                                
                         <div >
                             <HorizontalBarChart 
-                                powerstats= { powerstats }
+                                
+                                data = {   
+                                      {
+                                        labels: ['Intel', 'Str', 'Speed', 'Durab', 'Pw', 'Cmbt'],
+                                        datasets: [
+                                            {
+                                            data: [ powerstats.intelligence, powerstats.strength, powerstats.speed, powerstats.durability, powerstats.power, powerstats.combat ],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(153, 102, 255, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)',
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)',
+                                            ],
+                                            borderWidth: 1,
+                                            },
+                                        ],
+                                        }
+                                    } 
+                                
                             />
                             <div className="card-footer mt-5">
                                 <div className="d-flex justify-content-between p-md-1 ">                    
