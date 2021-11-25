@@ -12,7 +12,9 @@ import './card.scss';
 const Card = ({ hero }) => {
 
     const { id, name, image, powerstats, appearance, biography, work } = hero;
-    
+
+    const aliases = biography.aliases.map( alias => alias ).join(', ');
+        
     const [ , dispatch ] = useContext( TeamContext )
 
     const handleDeleteClick = ( ) => {
@@ -39,15 +41,7 @@ const Card = ({ hero }) => {
                         </div>
                     </div>    
                     <div className="card back">    
-                            {/* <ul>
-                                <li> intelligence: { powerstats.intelligence === 'null' ? 'unknown' : powerstats.intelligence} </li>
-                                <li> strength: { powerstats.strength === 'null' ? 'unknown' : powerstats.strength } </li>
-                                <li> speed: { powerstats.speed === 'null' ? 'unknown' : powerstats.speed } </li>
-                                <li> durability: { powerstats.durability === 'null' ? 'unknown' : powerstats.durability } </li>
-                                <li> power: { powerstats.power === 'null' ? 'unknown' : powerstats.power }</li>
-                                <li> combat: { powerstats.combat === 'null' ? 'unknown' : powerstats.combat } </li>
-                            </ul> */}
-                    
+                                               
                         <div >
                             <HorizontalBarChart 
                                 powerstats= { powerstats }
@@ -68,7 +62,7 @@ const Card = ({ hero }) => {
                                     </Modal.Header>
                                     <Modal.Body>
                                         <p>
-                                            Aliases: { biography.aliases }
+                                            Aliases: { aliases }
                                             <br />
                                             Weight: { appearance.weight[1] }
                                             <br />

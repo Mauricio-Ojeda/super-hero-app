@@ -13,6 +13,7 @@ const Card = ({ hero }) => {
 
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [success, setSuccess] = useState(false)
 
     
     const handleClick = () => {
@@ -47,16 +48,31 @@ const Card = ({ hero }) => {
         if ( ( hero.biography.alignment === 'good' ) && ( goods.length < 3 ) ){ // dont be more that 3 good heroes           
                        
             dispatch( addHero( hero ) );
+            setSuccess(true);
+            
+            setTimeout(() => {
+                setSuccess(false);
+            }, 3500);
             return;
             
         }else if ( ( hero.biography.alignment === 'bad' ) && ( bads.length < 3 ) ){ // dont be more that 3 bad heroes  
           
-            dispatch( addHero( hero ) )
+            dispatch( addHero( hero ) );
+            setSuccess(true);
+            
+            setTimeout(() => {
+                setSuccess(false);
+            }, 3500);
             return;
 
         } else if( hero.biography.alignment === 'neutral' ){
 
             dispatch( addHero( hero ) );
+            setSuccess(true);
+            
+            setTimeout(() => {
+                setSuccess(false);
+            }, 3500);
             return;
 
         }else {
@@ -74,10 +90,12 @@ const Card = ({ hero }) => {
             <div className="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
             <div className="card mb-3 " >
                 <img className="card-img-top h-100" src={ image.url } alt={ name }/>
-                <div className="card-body">
-                    <h4 className="card-title">{ name }</h4> 
-                    <div className="text-center">
+                <div className="card-body text-center">
+                    <h4 className="card-title ">{ name }</h4>
+                    <p className="text-capitalize">{`( ${ hero.biography.alignment } )`}</p> 
+                    <div>
                         { ( error ) && <Error message={ errorMessage } /> }
+                        { ( success ) && <p className="text-success" > Hero added to your Team ✔ </p> }
                     </div>                           
                     <button className="btn btn-primary w-100 stretched-link" onClick={ handleClick }>add</button>
                 </div>
