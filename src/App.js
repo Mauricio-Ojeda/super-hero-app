@@ -1,19 +1,35 @@
 
+import { useEffect, useReducer } from 'react';
 import './App.css';
-import Home from './components/home/Home';
+import { AuthContext } from './components/auth/AuthContext';
+import { authReducer } from './components/auth/authReducer';
 import SearchProvider from './context/SearchContext';
 import TeamProvider from './context/teamContext/Store';
 import { initialState, heroTeamReducer } from './context/teamContext/teamReducer';
+import { AppRouter } from './Routers/AppRouter';
 
+const init = () => {
+  return JSON.parse(localStorage.getItem('user')) || { logged: false };
+}
 
 function App() {
+
+  const [user, dispatch] = useReducer( authReducer, {}, init );
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify( user ));
+    
+  }, [ user ])
+
   return (
     <>
+      <AuthContext.Provider value={{ user, dispatch}} >
       <SearchProvider>
       <TeamProvider initialState={ initialState } reducer={ heroTeamReducer }>
-        <Home/>
+          <AppRouter />
       </TeamProvider> 
       </SearchProvider>
+      </AuthContext.Provider>
       
     </>
   );

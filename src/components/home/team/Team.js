@@ -11,7 +11,7 @@ const Team = () => {
             <div className="container-fluid mb-3">
                 <h2 className="text-center">Your team </h2>                
                 <div className="row">
-                    <div className="col">
+                    <div className="col" name="team" id="team">
                         <TeamCards />
                        
                     </div>                   

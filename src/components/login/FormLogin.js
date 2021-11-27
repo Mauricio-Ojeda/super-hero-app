@@ -2,7 +2,10 @@ import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 
-const FormLogin = ({ setFormValues, setError }) => {
+const FormLogin = ({ setFormValues, setError, }) => {
+
+
+   
     return (
         <Formik
             initialValues={{
@@ -29,9 +32,9 @@ const FormLogin = ({ setFormValues, setError }) => {
             onSubmit ={ ( values, { resetForm } ) => {
                     resetForm();
                     setFormValues( values );
-                    setError(false)
-                
-                }} 
+                    setError(false);
+                  
+            }} 
         >{ ( { errors } ) => (
             <Form className="form-group col-md-4">
                     <div className="mb-3">
