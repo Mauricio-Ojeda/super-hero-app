@@ -16,6 +16,7 @@ function App() {
 
   const [user, dispatch] = useReducer( authReducer, {}, init );
 
+  // set token in localStorage
   useEffect(() => {
     localStorage.setItem('user', JSON.stringify( user ));
     
