@@ -50,7 +50,7 @@ export const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="navbar-collapse collapse w-100 d-flex justify-content-md-end justify-content-sm-center order-3 dual-collapse2">
+                <div className="navbar-collapse justify-content-md-end order-3 dual-collapse2">
                     <ul className="navbar-nav ml-auto">
                         <span className="nav-item nav-link text-white bold">
                             { email }

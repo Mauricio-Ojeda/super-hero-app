@@ -90,7 +90,7 @@ const Card = ({ hero }) => {
             <div className="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
             <div className="card mb-3 " >
                 <img className="card-img-top h-100" src={ image.url } alt={ name }/>
-                <div className="card-body text-center">
+                <div className="card-body text-center text-dark">
                     <h4 className="card-title ">{ name }</h4>
                     <p className="text-capitalize">{`( ${ hero.biography.alignment } )`}</p> 
                     <div>

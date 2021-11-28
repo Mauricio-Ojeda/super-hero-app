@@ -1,0 +1,11 @@
+@import '../../../styles/colors';
+
+#search{
+        .btn{
+            background-color: $red;
+            border-color: $red;
+            &:hover{
+                opacity: 0.85;
+            }
+        }
+}

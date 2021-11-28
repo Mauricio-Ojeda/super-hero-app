@@ -42,8 +42,7 @@ export const dataLabelsSorted = ( arrayData, arrayLabel ) =>{
         return b.data - a.data;
       });
 
-      console.log(sortedArrayOfObj);
-      
+          
     let  newArrayLabel = [];
     let  newArrayData = [];
       sortedArrayOfObj.forEach((d) => {

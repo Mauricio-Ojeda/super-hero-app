@@ -44,7 +44,8 @@ const PowerStats = () => {
     
 
     return (
-        <div className="container">
+        <div className="container mt-3 ">
+            <div className="col-md-6 col-lg-4 bg-dark p-3 mx-auto">
             <h3>Power Stats</h3>
             <p>Average Weight: { ( avgWeight === 'NaN' ) ? '0' : avgWeight }kg.</p>
             <p>Average Height: { ( avgHeight === 'NaN' ) ? '0' : avgHeight }cm.</p>
@@ -57,12 +58,12 @@ const PowerStats = () => {
                                     {
                                     data: powerStatsSorted[0],
                                     backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(255, 206, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)',
+                                        '#ee5454',
+                                        '#ffc510',
+                                        '#f6db35',
+                                        '#4c94f6',
+                                        '#4c69f6',
+                                        '#ee69f0',
                                     ],
                                     borderColor: [
                                         'rgba(255, 99, 132, 1)',
@@ -80,6 +81,7 @@ const PowerStats = () => {
                     
                     />
             }
+            </div>
         </div>
     )
 }

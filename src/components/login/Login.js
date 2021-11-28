@@ -53,13 +53,17 @@ const Login = () => {
     
 
     return (
-        <div className="container" id="login">
-           <div className="h-100 d-flex justify-content-center align-items-center ">
+        <div className="container-fluid" id="login">
+           <div className=" h-100 d-flex justify-content-center align-items-center ">
+               
+                <div className="container text-center "> 
                     { error && <Error message="Please provide valid email and password" /> }
                     <FormLogin
                         setFormValues={ setFormValues }
                         setError={ setError }                                                
-                    />                 
+                    />        
+                </div> 
+                                             
             </div>
         </div>
     )

@@ -1,6 +1,8 @@
 import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
+import './form-login.scss';
+
 
 const FormLogin = ({ setFormValues, setError, }) => {
 
@@ -36,36 +38,38 @@ const FormLogin = ({ setFormValues, setError, }) => {
                   
             }} 
         >{ ( { errors } ) => (
-            <Form className="form-group col-md-4">
-                    <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email address</label>
-                        <Field 
-                            type="email" 
-                            className="form-control" 
-                            id="email" 
-                            name="email"
-                            aria-describedby="emailHelp"
+            <div className="col-md-5 mx-auto">
+                <Form className="form-group ">
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email address</label>
+                            <Field 
+                                type="email" 
+                                className="form-control" 
+                                id="email" 
+                                name="email"
+                                aria-describedby="emailHelp"
 
-                        />
-                        <ErrorMessage name="email" component={ () =>( <p className="bg-danger text-white mt-1 p-2">{ errors.email }</p> )} />
-                        
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="Password" className="form-label">Password</label>
-                        <Field 
-                            type="password" 
-                            className="form-control" 
-                            id="Password"
-                            name="password"
-                            autoComplete="off"
+                            />
+                            <ErrorMessage name="email" component={ () =>( <p className="bg-danger text-white mt-1 p-2">{ errors.email }</p> )} />
+                            
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="Password" className="form-label">Password</label>
+                            <Field 
+                                type="password" 
+                                className="form-control" 
+                                id="Password"
+                                name="password"
+                                autoComplete="off"
 
-                        />
-                        <ErrorMessage name="password" component={ () =>( <p className="bg-danger text-white mt-1 p-2">{ errors.password }</p> )} />
-                    </div>
-                    <div className="d-flex justify-content-end">
-                        <button type="submit" className="btn btn-primary ">Login</button>
-                    </div>
-                </Form> 
+                            />
+                            <ErrorMessage name="password" component={ () =>( <p className="bg-danger text-white mt-1 p-2">{ errors.password }</p> )} />
+                        </div>
+                        <div className="d-flex justify-content-end">
+                            <button type="submit" className="btn btn-primary ">Login</button>
+                        </div>
+                </Form>
+            </div> 
         )}
         </Formik>          
         

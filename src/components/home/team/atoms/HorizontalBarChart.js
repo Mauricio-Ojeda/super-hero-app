@@ -8,11 +8,12 @@ const HorizontalBarChart = ( { data } ) => {
         const options = {
         indexAxis: 'y',
         maintainAspectRatio: true,
-        
+        fontColor:'#fff',               
         elements: {
             bar: {
-            borderWidth: 2,
+            borderWidth: 2,                        
             },
+            
         },
         responsive: true,
         plugins: {
