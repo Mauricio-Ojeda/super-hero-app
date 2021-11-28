@@ -1,6 +1,6 @@
 
 import { useEffect, useReducer } from 'react';
-import './App.css';
+
 import { AuthContext } from './auth/AuthContext';
 import { authReducer } from './auth/authReducer';
 
