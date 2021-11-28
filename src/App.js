@@ -1,8 +1,9 @@
 
 import { useEffect, useReducer } from 'react';
 import './App.css';
-import { AuthContext } from './components/auth/AuthContext';
-import { authReducer } from './components/auth/authReducer';
+import { AuthContext } from './auth/AuthContext';
+import { authReducer } from './auth/authReducer';
+
 import SearchProvider from './context/SearchContext';
 import TeamProvider from './context/teamContext/Store';
 import { initialState, heroTeamReducer } from './context/teamContext/teamReducer';

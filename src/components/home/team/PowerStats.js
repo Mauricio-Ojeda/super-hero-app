@@ -41,15 +41,13 @@ const PowerStats = () => {
 
     const powerStatsSorted = (heroesTeam[0]) && dataLabelsSorted( totalsPowerStats, labels );
 
-    console.log(powerStatsSorted);
     
-
 
     return (
         <div className="container">
             <h3>Power Stats</h3>
-            <p>Average Weight: { ( heroesTeam ) ? avgWeight : 0 }kg.</p>
-            <p>Average Height: { ( heroesTeam ) ? avgHeight : '0' }cm.</p>
+            <p>Average Weight: { ( avgWeight === 'NaN' ) ? '0' : avgWeight }kg.</p>
+            <p>Average Height: { ( avgHeight === 'NaN' ) ? '0' : avgHeight }cm.</p>
             {   (heroesTeam.length > 0) &&
                     <HorizontalBarChart 
                         data={ 

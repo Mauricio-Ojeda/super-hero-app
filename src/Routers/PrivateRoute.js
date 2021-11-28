@@ -1,24 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
+import { useContext } from 'react';
 
 import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../auth/AuthContext';
 
-const PrivateRoute = ({
-    isAuthenticated,    
-    children
-}) => {
-    return (
-        ( isAuthenticated )
-            ? ( { children } )
-            : ( <Navigate to="/login" /> )
-      
-    )
+
+const PrivateRoute = ({ children }) => {
+
+    const { user } = useContext( AuthContext )
+    
+
+    return user.logged
+        ? children
+        : <Navigate to="/login" />
 }
 
-
-export default PrivateRoute
-
-PrivateRoute.propTypes ={
-    isAuthenticated: PropTypes.bool.isRequired,
-}
+export default PrivateRoute;

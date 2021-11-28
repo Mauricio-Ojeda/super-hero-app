@@ -3,6 +3,20 @@ export const types = {
     logout: '[auth].logout',
 }
 
+// Dispatch
+
+export const login = ( login ) =>({
+    type: types.login,
+    payload: login,
+});
+
+export const logout = ( ) =>({
+    type: types.logout,
+    payload: {
+        logged: false,
+    }
+});
+
 export const authReducer = ( state = {}, action ) => {
     switch (action.type) {
         case types.login:
@@ -12,7 +26,7 @@ export const authReducer = ( state = {}, action ) => {
             }
         case types.logout:
             return{
-                logged: false
+                state: action.payload,
             }
             
             
